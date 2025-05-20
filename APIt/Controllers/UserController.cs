@@ -11,13 +11,14 @@ public class UserController : ControllerBase
     [HttpPost("register")]
     public IActionResult Register([FromForm] string tipoDoc,[FromForm] int valorDoc)
     {
-        // Aca se va a usar la api de willin para saber si los documentos son validos 
+        // Aca se va a usar la api de willin para saber si los documentos son validos
+
         var user = new User(null);
         return Ok(new { message = $"Este es tu ID: '{user.id}'" });
     }
 
     // Endpoint para poner al usario los vectores 
-    [HttpPost("biometric")]
+    [HttpPost("biometric/{id}")]
     public IActionResult Biometric([FromForm] IFormFile image)
     {
 
